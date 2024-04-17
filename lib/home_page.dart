@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
     Image.asset("assets/images/9.jpg", fit: BoxFit.cover, width: double.infinity, height: double.infinity),
   ];
 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -42,6 +42,11 @@ class LoginPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
             ),
             items: imageSliders,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            color: Colors.black.withOpacity(0.5),  // Semi-transparent black overlay
           ),
           Center(
             child: Column(
@@ -89,29 +94,53 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisSize: MainAxisSize.min,  
-                  children: [
-                    Text('New to the Sebawi Community? ', style: TextStyle(fontSize: 17, color: Colors.white)),
-                    TextButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.pressed))
-                              return Colors.green.shade800;
-                            return Colors.lightGreen;
-                          },
-                        ),
-                        textStyle: MaterialStateProperty.all<TextStyle>(
-                          TextStyle(fontSize: 20),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,  
+                    children: [
+                      Text(
+                        'New to the Sebawi Community? ',
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.white,
+                          shadows: [
+                            Shadow(
+                              offset: Offset(1.0, 1.0),
+                              blurRadius: 3.0,
+                              color: Colors.black,
+                            ),
+                          ],
                         ),
                       ),
-                      child: Text('Sign Up'),
+                      TextButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                            (Set<MaterialState> states) {
+                              if (states.contains(MaterialState.pressed))
+                                return Colors.green.shade800;
+                              return Colors.lightGreen;
+                            },
+                          ),
+                          textStyle: MaterialStateProperty.all<TextStyle>(
+                            const TextStyle(
+                              fontSize: 20,
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(1.0, 1.0),
+                                  blurRadius: 3.0,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        child: Text('Sign Up'),
                     ),
                   ],
                 ),
-              ],
+            )],
             ),
           ),
         ],
