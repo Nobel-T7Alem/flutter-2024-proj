@@ -4,9 +4,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: LoginPage(),
       theme: ThemeData(
         fontFamily: 'Roboto',
@@ -21,14 +22,19 @@ class HomePage extends StatelessWidget {
 
 class LoginPage extends StatelessWidget {
   final List<Widget> imageSliders = [
-    Image.asset("assets/images/11.jpg", fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/15.jpg", fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/13.jpg", fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/7.jpg", fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/9.jpg", fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+    Image.asset("assets/images/11.jpg",
+        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+    Image.asset("assets/images/15.jpg",
+        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+    Image.asset("assets/images/13.jpg",
+        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+    Image.asset("assets/images/7.jpg",
+        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+    Image.asset("assets/images/9.jpg",
+        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
   ];
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -46,16 +52,17 @@ class LoginPage extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: Colors.black.withOpacity(0.5),  // Semi-transparent black overlay
+            color:
+                Colors.black.withOpacity(0.5), // Semi-transparent black overlay
           ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('assets/images/sebawi2.png', width: 80),  
-                SizedBox(height: 400),  
+                Image.asset('assets/images/sebawi2.png', width: 80),
+                SizedBox(height: 400),
                 SizedBox(
-                  width: 300,  
+                  width: 300,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
@@ -75,7 +82,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 SizedBox(
-                  width: 300,  
+                  width: 300,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
@@ -97,7 +104,7 @@ class LoginPage extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
-                    mainAxisSize: MainAxisSize.min,  
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         'New to the Sebawi Community? ',
@@ -116,7 +123,8 @@ class LoginPage extends StatelessWidget {
                       TextButton(
                         onPressed: () {},
                         style: ButtonStyle(
-                          foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                          foregroundColor:
+                              MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
                               if (states.contains(MaterialState.pressed))
                                 return Colors.green.shade800;
@@ -137,10 +145,11 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         child: Text('Sign Up'),
-                    ),
-                  ],
-                ),
-            )],
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
         ],
@@ -148,6 +157,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
-
-
