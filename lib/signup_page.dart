@@ -10,13 +10,6 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController _passwordController = TextEditingController();
 
   @override
-  void dispose() {
-    _usernameController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -42,8 +35,6 @@ class _SignupScreenState extends State<SignupScreen> {
             onPressed: () {
               String username = _usernameController.text;
               String password = _passwordController.text;
-              
-              // Perform signup logic here using the entered username and password
             },
           ),
         ],
