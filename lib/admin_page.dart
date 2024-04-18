@@ -8,16 +8,19 @@ class AdminPage extends StatefulWidget {
 class _AdminPageState extends State<AdminPage> {
   // Assuming 'Post' is a class that contains data for each post.
   final List<Post> _posts = [
-    Post(title: "Event in Central Park", content: "Details about the event...", date: "2024-04-18"),
+    Post(
+        title: "Event in Central Park",
+        content: "Details about the event...",
+        date: "2024-04-18"),
     // Add more Post instances here
   ];
 
   @override
-Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Admin Dashboard'),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.lightGreen.withOpacity(0.5),
         actions: [
           IconButton(
             icon: Icon(Icons.add),

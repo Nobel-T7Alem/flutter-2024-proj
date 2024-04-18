@@ -15,7 +15,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Admin Login'),
-        backgroundColor: Colors.deepPurple, // Theme color for consistency.
+        backgroundColor: Colors.lightGreen.withOpacity(0.5),
       ),
       body: Center(
         child: Padding(
@@ -46,12 +46,17 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                 onPressed: _login,
                 child: const Text('Login'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors
-                      .deepPurple, // Set the background color of the button
-                  foregroundColor:
-                      Colors.white, // Set the text color of the button
+                  backgroundColor:
+                      Colors.lightGreen.withOpacity(0.5), // Button color
+                  foregroundColor: Colors.white, // Text color
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    side: BorderSide(
+                        color: Colors.green[800]!, width: 3), // Border style
+                  ),
+                  shadowColor: Colors.greenAccent, // Shadow color
                 ),
               ),
             ],
