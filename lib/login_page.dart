@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:Sebawi/admin_login.dart';
 
 class LoginPage extends StatelessWidget {
   final List<Widget> imageSliders = [
@@ -46,7 +47,12 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => AdminLoginPage()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightGreen.withOpacity(0.5),
                       foregroundColor: Colors.white,
@@ -88,7 +94,7 @@ class LoginPage extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
+                      const Text(
                         'New to the Sebawi Community? ',
                         style: TextStyle(
                           fontSize: 17,
