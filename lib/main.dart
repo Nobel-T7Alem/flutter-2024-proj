@@ -1,3 +1,4 @@
+import 'package:Sebawi/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:Sebawi/home_page.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const HomePage(),
+      
     );
   }
 }

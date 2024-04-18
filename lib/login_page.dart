@@ -103,7 +103,9 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/signup');
+                        },
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.resolveWith<Color>(
