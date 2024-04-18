@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -12,33 +14,190 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Signup'),
-      ),
-      body: Column(
-        children: [
-          TextField(
-            controller: _usernameController,
-            decoration: const InputDecoration(
-              labelText: 'Username',
-            ),
+      body: Container(
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                child: Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.arrow_back)),
+                    Image.asset(
+                      'assets/images/sebawilogo.png',
+                      width: 120.0,
+                      height: 120.0,
+                    ),
+                    const Text(
+                      'Sign Up',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 2.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromARGB(255, 31, 78, 33),
+                            style: BorderStyle.solid,
+                            width: 2)),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(213, 213, 213, 1))),
+                    labelText: 'Full Name',
+                    labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(height: 2.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromARGB(255, 31, 78, 33),
+                            style: BorderStyle.solid,
+                            width: 2)),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(213, 213, 213, 1))),
+                    labelText: 'Email Address',
+                    labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              SizedBox(height: 2.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromARGB(255, 31, 78, 33),
+                            style: BorderStyle.solid,
+                            width: 2)),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(213, 213, 213, 1))),
+                    labelText: 'Create Username',
+                    labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              SizedBox(height: 2.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromARGB(255, 31, 78, 33),
+                            style: BorderStyle.solid,
+                            width: 2)),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(213, 213, 213, 1))),
+                    labelText: 'Create Password',
+                    labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  obscureText: true,
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              SizedBox(height: 2.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromARGB(255, 31, 78, 33),
+                            style: BorderStyle.solid,
+                            width: 2)),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(213, 213, 213, 1))),
+                    labelText: 'Confirm Password',
+                    labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  obscureText: true,
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              SizedBox(height: 40.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                  width: 500.0,
+                  height: 50.0,
+                  child: ElevatedButton(
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 83, 171, 71),
+                    ),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(17),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: 4.0),
+                        child: Text('Already signed up?'),
+                      ),
+                      Text(
+                        'Login',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
-          TextField(
-            controller: _passwordController,
-            decoration: const InputDecoration(
-              labelText: 'Password',
-            ),
-            obscureText: true,
-          ),
-          ElevatedButton(
-            child: const Text('Signup'),
-            onPressed: () {
-              String username = _usernameController.text;
-              String password = _passwordController.text;
-            },
-          ),
-        ],
+        ),
       ),
     );
   }
 }
+
