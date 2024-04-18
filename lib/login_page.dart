@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             color:
-                Colors.black.withOpacity(0.5), // Semi-transparent black overlay
+                Colors.black.withOpacity(0.5), 
           ),
           Center(
             child: Column(

@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
       home: LoginPage(),
       theme: ThemeData(
         fontFamily: 'Roboto',
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyText1: TextStyle(fontSize: 20),
           bodyText2: TextStyle(fontSize: 18),
         ),

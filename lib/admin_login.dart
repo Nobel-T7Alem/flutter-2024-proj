@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Sebawi/admin_page.dart'; // Ensure this page is properly set up for navigation after login.
+import 'package:Sebawi/admin_page.dart'; 
 
 class AdminLoginPage extends StatefulWidget {
   @override
@@ -34,7 +34,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
               const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
-                obscureText: true, // Ensures the password is not visible.
+                obscureText: true, 
                 decoration: const InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
@@ -47,16 +47,16 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                 child: const Text('Login'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
-                      Colors.lightGreen.withOpacity(0.5), // Button color
-                  foregroundColor: Colors.white, // Text color
+                      Colors.lightGreen.withOpacity(0.5), 
+                  foregroundColor: Colors.white, 
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                     side: BorderSide(
-                        color: Colors.green[800]!, width: 3), // Border style
+                        color: Colors.green[800]!, width: 3), 
                   ),
-                  shadowColor: Colors.greenAccent, // Shadow color
+                  shadowColor: Colors.greenAccent, 
                 ),
               ),
             ],
@@ -69,14 +69,11 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
   void _login() {
     if (_usernameController.text == 'admin' &&
         _passwordController.text == 'password') {
-      // Simple placeholder check.
       Navigator.pushReplacement(
-        // Replaces the current route.
         context,
         MaterialPageRoute(builder: (context) => AdminPage()),
       );
     } else {
-      // Shows an error message if login is incorrect.
       showDialog(
         context: context,
         builder: (ctx) => AlertDialog(

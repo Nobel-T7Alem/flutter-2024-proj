@@ -19,19 +19,19 @@ class _SignupScreenState extends State<SignupScreen> {
         children: [
           TextField(
             controller: _usernameController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Username',
             ),
           ),
           TextField(
             controller: _passwordController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Password',
             ),
             obscureText: true,
           ),
           ElevatedButton(
-            child: Text('Signup'),
+            child: const Text('Signup'),
             onPressed: () {
               String username = _usernameController.text;
               String password = _passwordController.text;
