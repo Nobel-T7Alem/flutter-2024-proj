@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  runApp(UserHomePage());
+  runApp(const UserHomePage());
 }
 
 class UserHomePage extends StatelessWidget {
-  const UserHomePage({Key? key}) : super(key: key);
+  const UserHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -220,7 +221,11 @@ class _PostItemState extends State<PostItem> {
                           style: TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
-                        onPressed: () {/* ... */},
+                        onPressed: () {
+                          _launchCaller(
+                              widget.post.contactInfo
+                          );
+                        },
                       ),
                       const SizedBox(width: 8),
                       TextButton(
@@ -322,7 +327,14 @@ class _PostItemState extends State<PostItem> {
       ),
     );
   }
-  // Function opensSnackBar() => ,
+  Future<void> _launchCaller(String n) async {
+    Uri number = Uri(scheme: 'tel', path: n);
+    if (await canLaunchUrl(number)) {
+      await launchUrl(number);
+    } else {
+      throw 'Could not launch $number';
+    }
+  }
   Future openDialog()=> showDialog(context: context, builder: (context) => AlertDialog(
     title: const Text('Edit Post', style: TextStyle(fontWeight: FontWeight.w900),),
     content: const Column(

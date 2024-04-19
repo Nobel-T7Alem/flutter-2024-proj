@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AdminPage extends StatefulWidget {
+  const AdminPage({super.key});
+
   @override
   _AdminPageState createState() => _AdminPageState();
 }
@@ -33,7 +35,7 @@ class _AdminPageState extends State<AdminPage> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               'Your Posts',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           Expanded(
