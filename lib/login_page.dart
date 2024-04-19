@@ -1,3 +1,4 @@
+import 'package:Sebawi/login_user.dart';
 import 'package:Sebawi/user_home.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -95,7 +96,11 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => LoginUser()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightGreen.withOpacity(0.5),
                       foregroundColor: Colors.white,

@@ -1,4 +1,5 @@
-import 'package:Sebawi/auth_button.dart';
+import 'package:Sebawi/admin_login.dart';
+import 'package:Sebawi/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginUser extends StatefulWidget {
@@ -108,7 +109,16 @@ class _LoginUserState extends State<LoginUser> {
                 ),
               ),
               SizedBox(height: 40.0),
-              CustomButton(buttonText: 'Log In'),
+              CustomButton(
+                buttonText: 'Log In',
+                buttonColor: Color.fromARGB(255, 83, 171, 71),
+                buttonTextColor: Colors.white,
+                buttonAction: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => AdminLoginPage()),
+                  );
+                },
+              ),
             ],
           ),
         ),
