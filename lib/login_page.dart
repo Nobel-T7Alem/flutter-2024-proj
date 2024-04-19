@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                       const Text(
                         'New to the Sebawi Community? ',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           color: Colors.white,
                           shadows: [
                             Shadow(
