@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  runApp(const UserHomePage());
+  runApp(const AgencyHomePage());
 }
 
-class UserHomePage extends StatelessWidget {
-  const UserHomePage({super.key});
+class AgencyHomePage extends StatelessWidget {
+  const AgencyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -203,51 +203,51 @@ class _PostItemState extends State<PostItem> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    if (widget.isMyPost) ...[
-                      TextButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.green.shade800),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(20), // Border radius
-                            ),
-                          ),
-                        ),
-                        child: const Text(
-                          'Volunteer Now',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.white),
-                        ),
-                        onPressed: () {
-                          _launchCaller(
-                              widget.post.contactInfo
-                          );
-                        },
-                      ),
-                      const SizedBox(width: 8),
-                      TextButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.green.shade800),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(20), // Border radius
-                            ),
-                          ),
-                        ),
-                        child: const Text(
-                          'Add To Calendar',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.white),
-                        ),
-                        onPressed: () {/* ... */},
-                      ),
-                    ],
+                    // if (widget.isMyPost) ...[
+                    //   TextButton(
+                    //     style: ButtonStyle(
+                    //       backgroundColor:
+                    //           MaterialStateProperty.all(Colors.green.shade800),
+                    //       shape:
+                    //           MaterialStateProperty.all<RoundedRectangleBorder>(
+                    //         RoundedRectangleBorder(
+                    //           borderRadius:
+                    //               BorderRadius.circular(20), // Border radius
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     child: const Text(
+                    //       'Volunteer Now',
+                    //       style: TextStyle(
+                    //           fontWeight: FontWeight.bold, color: Colors.white),
+                    //     ),
+                    //     onPressed: () {
+                    //       _launchCaller(
+                    //           widget.post.contactInfo
+                    //       );
+                    //     },
+                    //   ),
+                    //   const SizedBox(width: 8),
+                    //   TextButton(
+                    //     style: ButtonStyle(
+                    //       backgroundColor:
+                    //           MaterialStateProperty.all(Colors.green.shade800),
+                    //       shape:
+                    //           MaterialStateProperty.all<RoundedRectangleBorder>(
+                    //         RoundedRectangleBorder(
+                    //           borderRadius:
+                    //               BorderRadius.circular(20), // Border radius
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     child: const Text(
+                    //       'Add To Calendar',
+                    //       style: TextStyle(
+                    //           fontWeight: FontWeight.bold, color: Colors.white),
+                    //     ),
+                    //     onPressed: () {/* ... */},
+                    //   ),
+                    // ],
                     if (!widget.isMyPost) ...[
                       IconButton(
                         icon: Icon(
@@ -327,14 +327,7 @@ class _PostItemState extends State<PostItem> {
       ),
     );
   }
-  Future<void> _launchCaller(String n) async {
-    Uri number = Uri(scheme: 'tel', path: n);
-    if (await canLaunchUrl(number)) {
-      await launchUrl(number);
-    } else {
-      throw 'Could not launch $number';
-    }
-  }
+
   Future openDialog()=> showDialog(context: context, builder: (context) => AlertDialog(
     title: const Text('Edit Post', style: TextStyle(fontWeight: FontWeight.w900),),
     content: const Column(

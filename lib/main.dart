@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/admin': (context) => AdminPage(),
         '/user': (context) => LoginUser(),
+        '/agency': (context) => AgencyHomePage(),
       },
       initialRoute: '/', 
     );

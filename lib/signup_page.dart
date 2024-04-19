@@ -18,7 +18,7 @@ class _SignupScreenState extends State<SignupScreen> {
       initialRoute: '/',
       routes: {
         '/volunteer': (context) => VolunteerSignup(),
-        '/agency': (context) => UserHomePage(),
+        '/agency': (context) => AgencyHomePage(),
       },
       debugShowCheckedModeBanner: false,
       home: Scaffold(
