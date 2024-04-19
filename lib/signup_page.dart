@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -187,7 +186,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       Text(
                         'Login',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 66, 148, 69)),
                       )
                     ],
                   ),
@@ -200,4 +201,3 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 }
-
