@@ -123,7 +123,7 @@ class LoginPage extends StatelessWidget {
                           ),
                           textStyle: MaterialStateProperty.all<TextStyle>(
                             const TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               shadows: [
                                 Shadow(
                                   offset: Offset(1.0, 1.0),
