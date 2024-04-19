@@ -16,10 +16,10 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
       theme: ThemeData(
-        fontFamily: 'Roboto',
+        // fontFamily: 'Roboto',
         textTheme: const TextTheme(
-          bodyText1: TextStyle(fontSize: 20),
-          bodyText2: TextStyle(fontSize: 18),
+          bodyLarge: TextStyle(fontSize: 20),
+          bodyMedium: TextStyle(fontSize: 18),
         ),
       ),
     );
