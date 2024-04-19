@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                       const Text(
                         'New to the Sebawi Community? ',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           color: Colors.white,
                           shadows: [
                             Shadow(
@@ -123,7 +123,7 @@ class LoginPage extends StatelessWidget {
                           ),
                           textStyle: MaterialStateProperty.all<TextStyle>(
                             const TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                               shadows: [
                                 Shadow(
                                   offset: Offset(1.0, 1.0),
