@@ -1,3 +1,4 @@
+import 'package:Sebawi/user_home.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -35,15 +36,37 @@ class LoginPage extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color:
-                Colors.black.withOpacity(0.5), 
+            color: Colors.black.withOpacity(0.5),
           ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset('assets/images/sebawi2.png', width: 80),
-                SizedBox(height: 400),
+                SizedBox(height: 350),
+                SizedBox(
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => UserHomePage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.lightGreen.withOpacity(0.5),
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      textStyle: TextStyle(fontSize: 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        side: BorderSide(color: Colors.green[800]!, width: 3),
+                      ),
+                      elevation: 5,
+                      shadowColor: Colors.greenAccent,
+                    ),
+                    child: Text('Browse'),
+                  ),
+                ),
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
