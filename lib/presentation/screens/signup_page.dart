@@ -17,34 +17,18 @@ class _SignupScreenState extends State<SignupScreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+            leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back),
+        )),
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 16),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  child: Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(Icons.arrow_back)),
-                      Image.asset(
-                        'assets/images/sebawilogo.png',
-                        width: 120.0,
-                        height: 120.0,
-                      ),
-                      const Text(
-                        'Welcome',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                ),
                 SizedBox(
                   height: 2.0,
                 ),
@@ -54,6 +38,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             'Are you a volunteer or an agency?',
