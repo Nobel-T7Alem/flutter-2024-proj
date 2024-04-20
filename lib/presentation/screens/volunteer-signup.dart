@@ -18,44 +18,36 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
-          padding: EdgeInsets.symmetric(vertical: 16),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  child: Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(Icons.arrow_back)),
-                      Image.asset(
-                        'assets/images/sebawilogo.png',
-                        width: 120.0,
-                        height: 120.0,
-                      ),
-                      const Text(
-                        'Sign Up',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                Padding(
+                  padding: EdgeInsets.only(top: 35),
+                  child: Image.asset(
+                    'assets/images/sebawilogo.png',
+                    width: 140.0,
+                    height: 140.0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 35),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(
                   height: 2.0,
                 ),
                 const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: EdgeInsets.symmetric(horizontal: 35.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [],
-                      ),
                       const SizedBox(height: 8.0),
                       Text(
                         'Do something good today.',
@@ -67,7 +59,7 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                 ),
                 SizedBox(height: 8.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: TextFormField(
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 4.0),
@@ -92,7 +84,7 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                 ),
                 SizedBox(height: 10.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: TextFormField(
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 4.0),
@@ -116,7 +108,7 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                 ),
                 SizedBox(height: 10.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: TextFormField(
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 4.0),
@@ -139,7 +131,7 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                 ),
                 SizedBox(height: 10.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: TextFormField(
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 4.0),
@@ -163,7 +155,7 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                 ),
                 SizedBox(height: 10.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: TextFormField(
                     decoration: const InputDecoration(
                       contentPadding: EdgeInsets.only(bottom: 4.0),
@@ -203,19 +195,18 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                           padding: EdgeInsets.only(right: 4.0),
                           child: Text('Already signed up?'),
                         ),
-                         GestureDetector(
-  onTap: () {
-   
-    Navigator.pushNamed(context, '/login_user');
-  },
-  child: const Text(
-    'Login',
-    style: TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Color.fromARGB(255, 66, 148, 69),
-    ),
-  ),
-)
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/login_user');
+                          },
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 66, 148, 69),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
