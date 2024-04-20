@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         '/signup': (context) => const SignupScreen(),
       },
       debugShowCheckedModeBanner: false,
-      home: UserHomePage(),
+      home: LoginPage(),
       theme: ThemeData(
         // fontFamily: 'Roboto',
         textTheme: const TextTheme(
