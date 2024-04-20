@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class UserHomePage extends StatelessWidget {
   const UserHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -67,7 +67,7 @@ class UserHomePage extends StatelessWidget {
                       ListTile(
                         title: Text(calendar[index]),
                       ),
-                     Divider(
+                      Divider(
                         height: 10,
                         thickness: 1,
                         color: Colors.grey.shade200,
@@ -100,6 +100,7 @@ class Post {
     required this.serviceType,
   });
 }
+
 List calendar = [];
 // Dummy data for posts
 List<Post> posts = [
@@ -240,7 +241,6 @@ class _PostItemState extends State<PostItem> {
                         ),
                         onPressed: () {
                           _selectDate();
-
                         },
                       ),
                     ],
@@ -264,14 +264,16 @@ class _PostItemState extends State<PostItem> {
       setState(() {
         widget._dateController.text = _picked.toString().split(" ")[0];
         calendar.add(_picked.toString().split(" ")[0]);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("Date selected for ${widget.post.agencyName}: ${widget._dateController.text}"),
-          action: SnackBarAction(
-            label: 'OK',
-            onPressed: () {},
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+                "Date selected for ${widget.post.agencyName}: ${widget._dateController.text}"),
+            action: SnackBarAction(
+              label: 'OK',
+              onPressed: () {},
+            ),
+            duration: const Duration(seconds: 5),
           ),
-          duration: const Duration(seconds: 5),
-        ),
         );
       });
     }

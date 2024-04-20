@@ -1,10 +1,10 @@
-import 'package:Sebawi/admin_page.dart';
-import 'package:Sebawi/login_page.dart';
-import 'package:Sebawi/login_user.dart';
-import 'package:Sebawi/signup_page.dart';
+import 'package:Sebawi/presentation/screens/admin_page.dart';
+import 'package:Sebawi/presentation/screens/login_page.dart';
+import 'package:Sebawi/presentation/screens/login_user.dart';
+import 'package:Sebawi/presentation/screens/signup_page.dart';
 import 'package:flutter/material.dart';
-import 'package:Sebawi/home_page.dart';
-import 'package:Sebawi/user_home.dart';
+import 'package:Sebawi/presentation/screens/home_page.dart';
+import 'package:Sebawi/presentation/screens/user_home.dart';
 void main() {
   runApp(const MyApp());
 }

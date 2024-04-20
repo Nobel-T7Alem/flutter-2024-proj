@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:Sebawi/login_user.dart';
-import 'package:Sebawi/agency_home.dart';
-import 'package:Sebawi/admin_login.dart';
+import 'package:Sebawi/presentation/screens/login_user.dart';
+import 'package:Sebawi/presentation/screens/agency_home.dart';
+import 'package:Sebawi/presentation/screens/admin_login.dart';
 
 class LoginPage extends StatefulWidget {
   @override

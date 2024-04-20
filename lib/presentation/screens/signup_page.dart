@@ -1,7 +1,7 @@
-import 'package:Sebawi/agency_signup.dart';
-import 'package:Sebawi/custom_button.dart';
-import 'package:Sebawi/agency_home.dart';
-import 'package:Sebawi/volunteer-signup.dart';
+import 'package:Sebawi/presentation/screens/agency_signup.dart';
+import 'package:Sebawi/presentation/widgets/custom_button.dart';
+import 'package:Sebawi/presentation/screens/agency_home.dart';
+import 'package:Sebawi/presentation/screens/volunteer-signup.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {

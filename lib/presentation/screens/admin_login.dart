@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Sebawi/admin_page.dart'; 
+import 'package:Sebawi/presentation/screens/admin_page.dart'; 
 
 class AdminLoginPage extends StatefulWidget {
   @override

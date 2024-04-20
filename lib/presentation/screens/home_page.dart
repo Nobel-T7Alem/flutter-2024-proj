@@ -1,9 +1,9 @@
-import 'package:Sebawi/agency_home.dart';
-import 'package:Sebawi/agency_signup.dart';
-import 'package:Sebawi/login_page.dart';
-import 'package:Sebawi/login_user.dart';
-import 'package:Sebawi/signup_page.dart';
-import 'package:Sebawi/volunteer-signup.dart';
+import 'package:Sebawi/presentation/screens/agency_home.dart';
+import 'package:Sebawi/presentation/screens/agency_signup.dart';
+import 'package:Sebawi/presentation/screens/login_page.dart';
+import 'package:Sebawi/presentation/screens/login_user.dart';
+import 'package:Sebawi/presentation/screens/signup_page.dart';
+import 'package:Sebawi/presentation/screens/volunteer-signup.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
