@@ -31,13 +31,15 @@ class _LoginPageState extends State<LoginPage> {
       if (_pageController.hasClients) {
         int nextPage = _pageController.page!.toInt() + 1;
         if (nextPage >= imageSliders.length) {
-          nextPage = 0;  // Loop back to the first item
+          nextPage = 0; // Loop back to the first item
         }
-        _pageController.animateToPage(
-          nextPage,
-          duration: Duration(seconds: 1),
-          curve: Curves.easeInOut,
-        ).then((_) => _autoSlide());
+        _pageController
+            .animateToPage(
+              nextPage,
+              duration: Duration(seconds: 1),
+              curve: Curves.easeInOut,
+            )
+            .then((_) => _autoSlide());
       }
     });
   }
@@ -67,37 +69,15 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset('assets/images/sebawi2.png', width: 80),
-                SizedBox(height: 350),
-                SizedBox(
-                  width: 300,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => AgencyHomePage()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightGreen.withOpacity(0.5),
-                      foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      textStyle: TextStyle(fontSize: 20),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        side: BorderSide(color: Colors.green[800]!, width: 3),
-                      ),
-                      elevation: 5,
-                      shadowColor: Colors.greenAccent,
-                    ),
-                    child: Text('Browse'),
-                  ),
-                ),
+                SizedBox(height: 400),
                 SizedBox(height: 20),
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => AdminLoginPage()),
+                        MaterialPageRoute(
+                            builder: (context) => AdminLoginPage()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
