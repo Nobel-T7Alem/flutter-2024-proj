@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Sebawi/presentation/screens/admin_page.dart'; 
+import 'package:Sebawi/presentation/screens/admin_page.dart';
 
 class AdminLoginPage extends StatefulWidget {
   @override
@@ -34,7 +34,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
               const SizedBox(height: 20),
               TextField(
                 controller: _passwordController,
-                obscureText: true, 
+                obscureText: true,
                 decoration: const InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
@@ -46,17 +46,15 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                 onPressed: _login,
                 child: const Text('Login'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      Colors.lightGreen.withOpacity(0.5), 
-                  foregroundColor: Colors.white, 
+                  backgroundColor: Colors.lightGreen.withOpacity(0.5),
+                  foregroundColor: Colors.white,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
-                    side: BorderSide(
-                        color: Colors.green[800]!, width: 3), 
+                    side: BorderSide(color: Colors.green[800]!, width: 3),
                   ),
-                  shadowColor: Colors.greenAccent, 
+                  shadowColor: Colors.greenAccent,
                 ),
               ),
             ],
