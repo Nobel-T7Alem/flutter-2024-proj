@@ -21,6 +21,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Stack(
         children: [
@@ -44,30 +45,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset('assets/images/sebawi2.png', width: 80),
-                SizedBox(height: 350),
-                SizedBox(
-                  width: 300,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => AgencyHomePage()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightGreen.withOpacity(0.5),
-                      foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      textStyle: TextStyle(fontSize: 20),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        side: BorderSide(color: Colors.green[800]!, width: 3),
-                      ),
-                      elevation: 5,
-                      shadowColor: Colors.greenAccent,
-                    ),
-                    child: Text('Browse'),
-                  ),
-                ),
+                SizedBox(height: 400),
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(

@@ -1,11 +1,10 @@
-import "package:google_fonts/google_fonts.dart";
 import 'package:Sebawi/admin_page.dart';
 import 'package:Sebawi/login_page.dart';
 import 'package:Sebawi/login_user.dart';
 import 'package:Sebawi/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:Sebawi/home_page.dart';
-import 'package:Sebawi/agency_home.dart';
+import 'package:Sebawi/user_home.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -19,9 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Sebawi',
-    theme: ThemeData(
-      textTheme: GoogleFonts.latoTextTheme(),
-      colorScheme: ColorScheme.fromSwatch(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.green,
         ).copyWith(
           secondary: Colors.green[800],
@@ -49,14 +47,13 @@ class MyApp extends StatelessWidget {
                 .green[800], 
           ),
         ),
-    ),
+      ),
       routes: {
         '/': (context) => const HomePage(),
         '/signup': (context) => SignupScreen(),
         '/login': (context) => LoginPage(),
         '/admin': (context) => AdminPage(),
         '/user': (context) => LoginUser(),
-        '/agency': (context) => AgencyHomePage(),
       },
       initialRoute: '/', 
     );

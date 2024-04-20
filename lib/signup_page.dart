@@ -15,11 +15,6 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/volunteer': (context) => VolunteerSignup(),
-        '/agency': (context) => AgencyHomePage(),
-      },
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
@@ -76,10 +71,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   buttonColor: Color.fromARGB(255, 83, 171, 71),
                   buttonTextColor: Colors.white,
                   buttonAction: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) => VolunteerSignup()),
-                    );
+                    Navigator.pushNamed(context, '/volunteer');
                   },
                 ),
                 SizedBox(height: 8.0),
@@ -121,9 +113,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   buttonColor: Colors.white,
                   buttonTextColor: Color.fromARGB(255, 83, 171, 71),
                   buttonAction: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AgencySignup()),
-                    );
+                    Navigator.pushNamed(context, '/agency');
                   },
                 )
               ],

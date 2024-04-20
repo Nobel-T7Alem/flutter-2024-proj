@@ -192,28 +192,36 @@ class _AgencySignupState extends State<AgencySignup> {
                       'Sign Up',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/agency_page');
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromARGB(255, 83, 171, 71),
                     ),
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(17),
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(right: 4.0),
                         child: Text('Already signed up?'),
                       ),
-                      Text(
-                        'Login',
-                        style: TextStyle(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/login_user');
+                        },
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 66, 148, 69)),
+                            color: Color.fromARGB(255, 66, 148, 69),
+                          ),
+                        ),
                       )
                     ],
                   ),

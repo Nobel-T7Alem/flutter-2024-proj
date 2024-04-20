@@ -1,10 +1,14 @@
 import 'package:Sebawi/agency_home.dart';
+import 'package:Sebawi/agency_signup.dart';
 import 'package:Sebawi/login_page.dart';
+import 'package:Sebawi/login_user.dart';
 import 'package:Sebawi/signup_page.dart';
+import 'package:Sebawi/volunteer-signup.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'user_home.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -14,6 +18,12 @@ class HomePage extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/signup': (context) => const SignupScreen(),
+        '/volunteer': (context) => VolunteerSignup(),
+        '/agency': (context) => AgencySignup(),
+        '/agency_page': (context) => AgencyHomePage(),
+        '/volunteer_page': (context) => UserHomePage(),
+        '/login_user': (context) => LoginUser()
+        
       },
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
