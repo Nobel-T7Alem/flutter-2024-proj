@@ -203,19 +203,18 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                           padding: EdgeInsets.only(right: 4.0),
                           child: Text('Already signed up?'),
                         ),
-                         GestureDetector(
-  onTap: () {
-   
-    Navigator.pushNamed(context, '/login_user');
-  },
-  child: const Text(
-    'Login',
-    style: TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Color.fromARGB(255, 66, 148, 69),
-    ),
-  ),
-)
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/login_user');
+                          },
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 66, 148, 69),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),

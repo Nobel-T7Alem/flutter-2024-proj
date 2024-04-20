@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UserHomePage extends StatelessWidget {
   const UserHomePage({super.key});
@@ -82,7 +80,6 @@ class UserHomePage extends StatelessWidget {
       ),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green.shade800),
-        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
     );
   }
@@ -218,7 +215,6 @@ class _PostItemState extends State<PostItem> {
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                         onPressed: () {
-                          _launchCaller(widget.post.contactInfo);
                         },
                       ),
                       const SizedBox(width: 8),
@@ -279,12 +275,4 @@ class _PostItemState extends State<PostItem> {
     }
   }
 
-  Future<void> _launchCaller(String n) async {
-    Uri number = Uri(scheme: 'tel', path: n);
-    if (await canLaunchUrl(number)) {
-      await launchUrl(number);
-    } else {
-      throw 'Could not launch $number';
-    }
-  }
 }

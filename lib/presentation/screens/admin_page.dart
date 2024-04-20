@@ -24,8 +24,7 @@ class _AdminPageState extends State<AdminPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -51,9 +50,8 @@ class _AdminPageState extends State<AdminPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         IconButton(
-                          icon:const Icon(Icons.edit),
-                          onPressed: () {
-                          },
+                          icon: const Icon(Icons.edit),
+                          onPressed: () {},
                         ),
                         IconButton(
                           icon: const Icon(Icons.delete),

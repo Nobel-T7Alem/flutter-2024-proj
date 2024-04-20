@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const AgencyHomePage());
@@ -86,9 +84,7 @@ class AgencyHomePage extends StatelessWidget {
       ),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green.shade800),
-        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-
     );
   }
 }
@@ -264,57 +260,66 @@ class _PostItemState extends State<PostItem> {
                           color: Colors.red.shade700,
                         ),
                         onPressed: () {
-                          showDialog(context: context, builder: (context) =>AlertDialog(
-                            title: const Text('Delete Post', style: TextStyle(fontWeight: FontWeight.w900),),
-                            content: const Text('Are you sure you want to delete this post?'),
-                            actions: [
-                              TextButton(
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStateProperty.all(Colors.redAccent.shade700),
-                                  shape:
-                                  MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(20), // Border radius
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text(
+                                'Delete Post',
+                                style: TextStyle(fontWeight: FontWeight.w900),
+                              ),
+                              content: const Text(
+                                  'Are you sure you want to delete this post?'),
+                              actions: [
+                                TextButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.redAccent.shade700),
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            20), // Border radius
+                                      ),
                                     ),
                                   ),
+                                  child: const Text(
+                                    'No',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
                                 ),
-                                child: const Text(
-                                  'No',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, color: Colors.white),
-                                ),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                              TextButton(
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStateProperty.all(Colors.green.shade800),
-                                  shape:
-                                  MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(20), // Border radius
+                                TextButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.green.shade800),
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            20), // Border radius
+                                      ),
                                     ),
                                   ),
+                                  child: const Text(
+                                    'Yes',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      posts.remove(widget.post);
+                                    });
+                                    Navigator.of(context).pop();
+                                  },
                                 ),
-                                child: const Text(
-                                  'Yes',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, color: Colors.white),
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    posts.remove(widget.post);
-                                  });
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
-                          ),);
+                              ],
+                            ),
+                          );
                         },
                       ),
                     ],
@@ -328,75 +333,75 @@ class _PostItemState extends State<PostItem> {
     );
   }
 
-  Future openDialog()=> showDialog(context: context, builder: (context) => AlertDialog(
-    title: const Text('Edit Post', style: TextStyle(fontWeight: FontWeight.w900),),
-    content: const Column(
-      children: [
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Agency Name',
-            hintText: 'Enter the name of the agency',
+  Future openDialog() => showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text(
+            'Edit Post',
+            style: TextStyle(fontWeight: FontWeight.w900),
           ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Contact Info',
-            hintText: 'Enter the contact information',
+          content: const Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Agency Name',
+                  hintText: 'Enter the name of the agency',
+                ),
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Contact Info',
+                  hintText: 'Enter the contact information',
+                ),
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Service Type',
+                  hintText: 'Enter the type of service',
+                ),
+              ),
+            ],
           ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Service Type',
-            hintText: 'Enter the type of service',
-          ),
-        ),
-      ],
-    ),
-    actions: [
-      TextButton(
-        style: ButtonStyle(
-          backgroundColor:
-          MaterialStateProperty.all(Colors.redAccent.shade700),
-          shape:
-          MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius:
-              BorderRadius.circular(20), // Border radius
+          actions: [
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.redAccent.shade700),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Border radius
+                  ),
+                ),
+              ),
+              child: const Text(
+                'Discard',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
-          ),
-        ),
-        child: const Text(
-          'Discard',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      ),
-      TextButton(
-        style: ButtonStyle(
-          backgroundColor:
-          MaterialStateProperty.all(Colors.green.shade800),
-          shape:
-          MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius:
-              BorderRadius.circular(20), // Border radius
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.green.shade800),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Border radius
+                  ),
+                ),
+              ),
+              child: const Text(
+                'Save Changes',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
-          ),
+          ],
         ),
-        child: const Text(
-          'Save Changes',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      ),
-    ],
-  ),);
+      );
 }
-
-
