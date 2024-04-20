@@ -1,39 +1,61 @@
+import 'package:flutter/material.dart';
 import 'package:Sebawi/login_user.dart';
 import 'package:Sebawi/agency_home.dart';
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
 import 'package:Sebawi/admin_login.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final PageController _pageController = PageController();
   final List<Widget> imageSliders = [
-    Image.asset("assets/images/11.jpg",
-        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/15.jpg",
-        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/13.jpg",
-        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/7.jpg",
-        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
-    Image.asset("assets/images/9.jpg",
-        fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+    Image.asset("assets/images/11.jpg", fit: BoxFit.cover),
+    Image.asset("assets/images/15.jpg", fit: BoxFit.cover),
+    Image.asset("assets/images/13.jpg", fit: BoxFit.cover),
+    Image.asset("assets/images/7.jpg", fit: BoxFit.cover),
+    Image.asset("assets/images/9.jpg", fit: BoxFit.cover),
   ];
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _autoSlide();
+    });
+  }
+
+  void _autoSlide() {
+    Future.delayed(Duration(seconds: 3)).then((_) {
+      if (_pageController.hasClients) {
+        int nextPage = _pageController.page!.toInt() + 1;
+        if (nextPage >= imageSliders.length) {
+          nextPage = 0;  // Loop back to the first item
+        }
+        _pageController.animateToPage(
+          nextPage,
+          duration: Duration(seconds: 1),
+          curve: Curves.easeInOut,
+        ).then((_) => _autoSlide());
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Stack(
         children: [
-          CarouselSlider(
-            options: CarouselOptions(
-              autoPlay: true,
-              aspectRatio: MediaQuery.of(context).size.aspectRatio,
-              enlargeCenterPage: false,
-              viewportFraction: 1.0,
-              height: MediaQuery.of(context).size.height,
-            ),
-            items: imageSliders,
+          PageView(
+            controller: _pageController,
+            children: imageSliders,
           ),
           Container(
             width: MediaQuery.of(context).size.width,
@@ -45,14 +67,37 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset('assets/images/sebawi2.png', width: 80),
-                SizedBox(height: 400),
+                SizedBox(height: 350),
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => AdminLoginPage()),
+                        MaterialPageRoute(builder: (context) => AgencyHomePage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.lightGreen.withOpacity(0.5),
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      textStyle: TextStyle(fontSize: 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        side: BorderSide(color: Colors.green[800]!, width: 3),
+                      ),
+                      elevation: 5,
+                      shadowColor: Colors.greenAccent,
+                    ),
+                    child: Text('Browse'),
+                  ),
+                ),
+                SizedBox(height: 20),
+                SizedBox(
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => AdminLoginPage()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
