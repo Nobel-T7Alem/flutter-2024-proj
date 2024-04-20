@@ -1,4 +1,5 @@
 import 'package:Sebawi/presentation/widgets/custom_button.dart';
+import 'package:Sebawi/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -57,124 +58,29 @@ class _AgencySignupState extends State<AgencySignup> {
                   ),
                 ),
                 SizedBox(height: 8.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 4.0),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 31, 78, 33),
-                              style: BorderStyle.solid,
-                              width: 2)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromRGBO(213, 213, 213, 1))),
-                      labelText: 'Agency Name',
-                      labelStyle: TextStyle(
-                          color: Color.fromARGB(255, 165, 165, 165),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
+                CustomTextFormField(
+                  labelText: 'Agency name',
+                  obscureText: true,
                 ),
                 SizedBox(height: 10.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 4.0),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 31, 78, 33),
-                              style: BorderStyle.solid,
-                              width: 2)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromRGBO(213, 213, 213, 1))),
-                      labelText: 'Email Address',
-                      labelStyle: TextStyle(
-                          color: Color.fromARGB(255, 165, 165, 165),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    style: TextStyle(color: Colors.black),
-                  ),
+                CustomTextFormField(
+                  labelText: 'Enter Email',
+                  obscureText: true,
                 ),
                 SizedBox(height: 10.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 4.0),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 31, 78, 33),
-                              style: BorderStyle.solid,
-                              width: 2)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromRGBO(213, 213, 213, 1))),
-                      labelText: 'Create Username',
-                      labelStyle: TextStyle(
-                          color: Color.fromARGB(255, 165, 165, 165),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    style: TextStyle(color: Colors.black),
-                  ),
+                CustomTextFormField(
+                  labelText: 'Create Username',
+                  obscureText: true,
                 ),
                 SizedBox(height: 10.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 4.0),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 31, 78, 33),
-                              style: BorderStyle.solid,
-                              width: 2)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromRGBO(213, 213, 213, 1))),
-                      labelText: 'Create Password',
-                      labelStyle: TextStyle(
-                          color: Color.fromARGB(255, 165, 165, 165),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    obscureText: true,
-                    style: TextStyle(color: Colors.black),
-                  ),
+                CustomTextFormField(
+                  labelText: 'Create Password',
+                  obscureText: true,
                 ),
                 SizedBox(height: 10.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(bottom: 4.0),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 31, 78, 33),
-                              style: BorderStyle.solid,
-                              width: 2)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromRGBO(213, 213, 213, 1))),
-                      labelText: 'Confirm Password',
-                      labelStyle: TextStyle(
-                          color: Color.fromARGB(255, 165, 165, 165),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    obscureText: true,
-                    style: TextStyle(color: Colors.black),
-                  ),
+                CustomTextFormField(
+                  labelText: 'Confirm Password',
+                  obscureText: true,
                 ),
                 SizedBox(height: 40.0),
                 CustomButton(
