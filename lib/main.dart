@@ -4,6 +4,7 @@ import 'package:Sebawi/presentation/screens/agency_signup.dart';
 import 'package:Sebawi/presentation/screens/login_page.dart';
 import 'package:Sebawi/presentation/screens/login_user.dart';
 import 'package:Sebawi/presentation/screens/signup_page.dart';
+import 'package:Sebawi/presentation/screens/user_update.dart';
 import 'package:Sebawi/presentation/screens/volunteer-signup.dart';
 import 'package:flutter/material.dart';
 import 'package:Sebawi/presentation/screens/home_page.dart';
@@ -61,6 +62,11 @@ final GoRouter _router = GoRouter(
       name: "agency_signup",
       builder: (context, state) => const AgencySignup(),
     ),
+    GoRoute(
+      path: '/user_update',
+      name: "user_update",
+      builder: (context, state) => const UserUpdate(),
+    ),
   ],
   errorBuilder: (context, state) {
     return Scaffold(
@@ -99,6 +105,7 @@ class MyApp extends StatelessWidget {
           secondary: Colors.green[800],
           surface: Colors.lightGreen.withOpacity(0.5), 
         ),
+        scaffoldBackgroundColor: Colors.white,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.lightGreen.withOpacity(0.5), 
