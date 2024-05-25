@@ -1,5 +1,6 @@
 import 'package:Sebawi/presentation/screens/admin_login.dart';
 import 'package:Sebawi/presentation/screens/admin_page.dart';
+import 'package:Sebawi/presentation/screens/agency_home.dart';
 import 'package:Sebawi/presentation/screens/agency_signup.dart';
 import 'package:Sebawi/presentation/screens/login_page.dart';
 import 'package:Sebawi/presentation/screens/login_user.dart';
@@ -61,6 +62,10 @@ final GoRouter _router = GoRouter(
       name: "agency_signup",
       builder: (context, state) => const AgencySignup(),
     ),
+    GoRoute(
+      path: '/agency_home',
+      name: "agency_home",
+      builder: (context, state) => const AgencyHomePage()),
   ],
   errorBuilder: (context, state) {
     return Scaffold(

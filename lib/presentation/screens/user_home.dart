@@ -1,4 +1,7 @@
+import 'package:Sebawi/data/services/api_path.dart';
 import 'package:flutter/material.dart';
+
+import '../../data/models/posts.dart';
 
 class UserHomePage extends StatelessWidget {
   const UserHomePage({super.key});
@@ -38,25 +41,35 @@ class UserHomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              ListView.builder(
-                itemCount: posts.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      PostItem(
-                        post: posts[index],
-                        isMyPost: true,
-                      ),
-                      Divider(
-                        height: 10,
-                        thickness: 1,
-                        color: Colors.grey.shade200,
-                      ),
-                    ],
-                  );
+              FutureBuilder(
+                future: fetchPosts(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return const Center(child: Text("Error loading posts"));
+                  } else {
+                    return ListView.builder(
+                      itemCount: posts?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            PostItem(
+                              post: posts![index],
+                              isMyPost: true,
+                            ),
+                            Divider(
+                              height: 10,
+                              thickness: 1,
+                              color: Colors.grey.shade200,
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
                 },
               ),
-              // const Center(child: Text("My Calendar")),
               ListView.builder(
                 itemCount: calendar.length,
                 itemBuilder: (context, index) {
@@ -83,60 +96,26 @@ class UserHomePage extends StatelessWidget {
       ),
     );
   }
+
+  fetchPosts() async {
+    posts = await RemoteService().getPosts();
+  }
 }
 
-// Model for a post
-class Post {
-  final String agencyName;
-  final String contactInfo;
-  final String serviceType;
+List<Post>? posts;
+List<String> calendar = [];
 
-  Post({
-    required this.agencyName,
-    required this.contactInfo,
-    required this.serviceType,
-  });
-}
-
-List calendar = [];
-// Dummy data for posts
-List<Post> posts = [
-  Post(
-    agencyName: "Mekedonia",
-    contactInfo: "09113124",
-    serviceType: "Money and Labor",
-  ),
-  Post(
-    agencyName: "Gergesenon",
-    contactInfo: "09113523",
-    serviceType: "Sanitary Products",
-  ),
-  Post(
-    agencyName: "Mekedonia",
-    contactInfo: "09113124",
-    serviceType: "Money and Labor",
-  ),
-  Post(
-    agencyName: "Mekedonia",
-    contactInfo: "09113124",
-    serviceType: "Money and Labor",
-  ),
-
-  // Add more dummy posts here
-];
-
-// Widget for displaying a single post
 class PostItem extends StatefulWidget {
   final Post post;
   final bool isMyPost;
   PostItem({required this.post, required this.isMyPost, super.key});
 
   @override
-  _PostItemState createState() => _PostItemState();
-  TextEditingController _dateController = TextEditingController();
+  PostItemState createState() => PostItemState();
+  final TextEditingController _dateController = TextEditingController();
 }
 
-class _PostItemState extends State<PostItem> {
+class PostItemState extends State<PostItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -156,7 +135,7 @@ class _PostItemState extends State<PostItem> {
           title: Padding(
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
             child: Text(
-              widget.post.agencyName,
+              widget.post.name,
               style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
@@ -174,7 +153,7 @@ class _PostItemState extends State<PostItem> {
                     " Contact: ",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
-                  Text(widget.post.contactInfo),
+                  Text(widget.post.contact),
                 ],
               ),
               Row(
@@ -185,10 +164,10 @@ class _PostItemState extends State<PostItem> {
                     child: Text(
                       " Service Type: ",
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Text(widget.post.serviceType),
+                  Text(widget.post.description),
                 ],
               ),
               Padding(
@@ -200,12 +179,12 @@ class _PostItemState extends State<PostItem> {
                       TextButton(
                         style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.green.shade800),
+                          MaterialStateProperty.all(Colors.green.shade800),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadius.circular(20), // Border radius
+                              BorderRadius.circular(20), // Border radius
                             ),
                           ),
                         ),
@@ -215,18 +194,19 @@ class _PostItemState extends State<PostItem> {
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                         onPressed: () {
+                          // Implement your logic here
                         },
                       ),
                       const SizedBox(width: 8),
                       TextButton(
                         style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.green.shade800),
+                          MaterialStateProperty.all(Colors.green.shade800),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                          MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadius.circular(20), // Border radius
+                              BorderRadius.circular(20), // Border radius
                             ),
                           ),
                         ),
@@ -263,7 +243,7 @@ class _PostItemState extends State<PostItem> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-                "Date selected for ${widget.post.agencyName}: ${widget._dateController.text}"),
+                "Date selected for ${widget.post.name}: ${widget._dateController.text}"),
             action: SnackBarAction(
               label: 'OK',
               onPressed: () {},
@@ -274,5 +254,4 @@ class _PostItemState extends State<PostItem> {
       });
     }
   }
-
 }
