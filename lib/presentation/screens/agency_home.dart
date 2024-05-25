@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const AgencyHomePage());
@@ -289,7 +290,7 @@ class _PostItemState extends State<PostItem> {
                                         color: Colors.white),
                                   ),
                                   onPressed: () {
-                                    Navigator.of(context).pop();
+                                    context.pop();
                                   },
                                 ),
                                 TextButton(
@@ -314,7 +315,7 @@ class _PostItemState extends State<PostItem> {
                                     setState(() {
                                       posts.remove(widget.post);
                                     });
-                                    Navigator.of(context).pop();
+                                    context.pop();
                                   },
                                 ),
                               ],
@@ -379,7 +380,7 @@ class _PostItemState extends State<PostItem> {
                     TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
             ),
             TextButton(
@@ -398,7 +399,7 @@ class _PostItemState extends State<PostItem> {
                     TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
             ),
           ],

@@ -2,8 +2,11 @@ import 'package:Sebawi/presentation/widgets/custom_button.dart';
 import 'package:Sebawi/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 class AgencySignup extends StatefulWidget {
+  const AgencySignup({super.key});
+
   @override
   _AgencySignupState createState() => _AgencySignupState();
 }
@@ -23,16 +26,16 @@ class _AgencySignupState extends State<AgencySignup> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 35),
+                  padding: const EdgeInsets.only(top: 35),
                   child: Image.asset(
                     'assets/images/sebawilogo.png',
                     width: 140.0,
                     height: 140.0,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 35),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.only(left: 35),
+                  child: Text(
                     'Sign Up',
                     style: TextStyle(
                         color: Colors.black,
@@ -40,7 +43,7 @@ class _AgencySignupState extends State<AgencySignup> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 2.0,
                 ),
                 const Padding(
@@ -48,7 +51,7 @@ class _AgencySignupState extends State<AgencySignup> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 8.0),
+                      SizedBox(height: 8.0),
                       Text(
                         'Share your volunteering opportunities.',
                         style: TextStyle(
@@ -57,41 +60,41 @@ class _AgencySignupState extends State<AgencySignup> {
                     ],
                   ),
                 ),
-                SizedBox(height: 8.0),
-                CustomTextFormField(
+                const SizedBox(height: 8.0),
+                const CustomTextFormField(
                   labelText: 'Agency name',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Enter Email',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Create Username',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Create Password',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Confirm Password',
                   obscureText: true,
                 ),
-                SizedBox(height: 40.0),
+                const SizedBox(height: 40.0),
                 CustomButton(
                     buttonText: 'Signup',
-                    buttonColor: Color.fromARGB(255, 83, 171, 71),
+                    buttonColor: const Color.fromARGB(255, 83, 171, 71),
                     buttonTextColor: Colors.white,
                     buttonAction: () {
                       Navigator.pushNamed(context, '/agency_page');
                     }),
                 Padding(
-                  padding: EdgeInsets.all(17),
+                  padding: const EdgeInsets.all(17),
                   child: Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +105,7 @@ class _AgencySignupState extends State<AgencySignup> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/login_user');
+                            context.go('/user_login');
                           },
                           child: const Text(
                             'Login',

@@ -2,7 +2,7 @@ import 'package:Sebawi/presentation/widgets/custom_button.dart';
 import 'package:Sebawi/presentation/screens/user_home.dart';
 import 'package:Sebawi/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 class VolunteerSignup extends StatefulWidget {
   @override
@@ -24,16 +24,16 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 35),
+                  padding: const EdgeInsets.only(top: 35),
                   child: Image.asset(
                     'assets/images/sebawilogo.png',
                     width: 140.0,
                     height: 140.0,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 35),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.only(left: 35),
+                  child: Text(
                     'Sign Up',
                     style: TextStyle(
                         color: Colors.black,
@@ -41,7 +41,7 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 2.0,
                 ),
                 const Padding(
@@ -49,7 +49,7 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 8.0),
+                      SizedBox(height: 8.0),
                       Text(
                         'Do something good today.',
                         style: TextStyle(
@@ -58,61 +58,62 @@ class _VolunteerSignupState extends State<VolunteerSignup> {
                     ],
                   ),
                 ),
-                SizedBox(height: 8.0),
-                CustomTextFormField(
+                const SizedBox(height: 8.0),
+                const CustomTextFormField(
                   labelText: 'Full name',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Enter Email',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Create Username',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Create Password',
                   obscureText: true,
                 ),
-                SizedBox(height: 10.0),
-                CustomTextFormField(
+                const SizedBox(height: 10.0),
+                const CustomTextFormField(
                   labelText: 'Confirm Password',
                   obscureText: true,
                 ),
-                SizedBox(height: 40.0),
+                const SizedBox(height: 40.0),
                 CustomButton(
-                    buttonText: 'Signup',
-                    buttonColor: Color.fromARGB(255, 83, 171, 71),
+                    buttonText: 'Sign up',
+                    buttonColor: const Color.fromARGB(255, 83, 171, 71),
                     buttonTextColor: Colors.white,
                     buttonAction: () {
-                      Navigator.pushNamed(context, '/volunteer_page');
+                      context.go('/user_home');
                     }),
                 Padding(
-                  padding: EdgeInsets.all(17),
+                  padding: const EdgeInsets.all(17),
                   child: Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(right: 4.0),
-                          child: Text('Already signed up?'),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/login_user');
+                           const Text('Already signed up?'),
+                        TextButton(
+                          onPressed: () {
+                            context.go('/user_login');
                           },
-                          child: const Text(
-                            'Login',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 66, 148, 69),
+                          style: ButtonStyle(
+                            foregroundColor: MaterialStateProperty.all<Color>(
+                                const Color.fromARGB(255, 66, 148, 69)),
+                            textStyle: MaterialStateProperty.all<TextStyle>(
+                              const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
-                        )
+                          child: const Text('Log In'),
+                        ),
                       ],
                     ),
                   ),

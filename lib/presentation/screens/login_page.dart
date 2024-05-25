@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:Sebawi/presentation/screens/login_user.dart';
 import 'package:Sebawi/presentation/screens/agency_home.dart';
 import 'package:Sebawi/presentation/screens/admin_login.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -27,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _autoSlide() {
-    Future.delayed(Duration(seconds: 3)).then((_) {
+    Future.delayed(const Duration(seconds: 3)).then((_) {
       if (_pageController.hasClients) {
         int nextPage = _pageController.page!.toInt() + 1;
         if (nextPage >= imageSliders.length) {
@@ -36,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
         _pageController
             .animateToPage(
               nextPage,
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               curve: Curves.easeInOut,
             )
             .then((_) => _autoSlide());
@@ -69,22 +72,19 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset('assets/images/sebawi2.png', width: 80),
-                SizedBox(height: 400),
-                SizedBox(height: 20),
+                const SizedBox(height: 400),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => AdminLoginPage()),
-                      );
+                      context.go('/admin_login');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightGreen.withOpacity(0.5),
                       foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      textStyle: TextStyle(fontSize: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      textStyle: const TextStyle(fontSize: 20),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                         side: BorderSide(color: Colors.green[800]!, width: 3),
@@ -92,23 +92,21 @@ class _LoginPageState extends State<LoginPage> {
                       elevation: 5,
                       shadowColor: Colors.greenAccent,
                     ),
-                    child: Text('Login as Admin'),
+                    child: const Text('Login as Admin'),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: 300,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => LoginUser()),
-                      );
+                      context.go('/user_login');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightGreen.withOpacity(0.5),
                       foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                      textStyle: TextStyle(fontSize: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      textStyle: const TextStyle(fontSize: 20),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                         side: BorderSide(color: Colors.green[800]!, width: 3),
@@ -116,12 +114,12 @@ class _LoginPageState extends State<LoginPage> {
                       elevation: 5,
                       shadowColor: Colors.green[800]!,
                     ),
-                    child: Text('Login as Volunteer/Agency'),
+                    child: const Text('Login as Volunteer/Agency'),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -141,14 +139,15 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/signup');
+                          context.go('/signup');
                         },
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) {
-                              if (states.contains(MaterialState.pressed))
+                              if (states.contains(MaterialState.pressed)) {
                                 return Colors.green.shade800;
+                              }
                               return Colors.lightGreen;
                             },
                           ),
@@ -165,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        child: Text('Sign Up'),
+                        child: const Text('Sign Up'),
                       ),
                     ],
                   ),

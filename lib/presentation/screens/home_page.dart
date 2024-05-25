@@ -13,17 +13,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/signup': (context) => const SignupScreen(),
-        '/volunteer': (context) => VolunteerSignup(),
-        '/agency': (context) => AgencySignup(),
-        '/agency_page': (context) => AgencyHomePage(),
-        '/volunteer_page': (context) => UserHomePage(),
-        '/login_user': (context) => LoginUser()
-      },
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const LoginPage(),
       theme: ThemeData(
         // fontFamily: 'Roboto',
         textTheme: const TextTheme(

@@ -3,6 +3,7 @@ import 'package:Sebawi/presentation/widgets/custom_button.dart';
 import 'package:Sebawi/presentation/screens/agency_home.dart';
 import 'package:Sebawi/presentation/screens/volunteer-signup.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -25,11 +26,11 @@ class _SignupScreenState extends State<SignupScreen> {
           icon: const Icon(Icons.arrow_back),
         )),
         body: Container(
-          padding: EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: 16),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 2.0,
                 ),
                 const Padding(
@@ -50,16 +51,16 @@ class _SignupScreenState extends State<SignupScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 40.0),
+                const SizedBox(height: 40.0),
                 CustomButton(
                   buttonText: 'Volunteer',
-                  buttonColor: Color.fromARGB(255, 83, 171, 71),
+                  buttonColor: const Color.fromARGB(255, 83, 171, 71),
                   buttonTextColor: Colors.white,
                   buttonAction: () {
-                    Navigator.pushNamed(context, '/volunteer');
+                    context.go("/volunteer_signup");
                   },
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
@@ -90,15 +91,15 @@ class _SignupScreenState extends State<SignupScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 CustomButton(
                   buttonText: 'Agency',
                   buttonColor: Colors.white,
-                  buttonTextColor: Color.fromARGB(255, 83, 171, 71),
+                  buttonTextColor: const Color.fromARGB(255, 83, 171, 71),
                   buttonAction: () {
-                    Navigator.pushNamed(context, '/agency');
+                    context.go('/agency_signup');
                   },
                 )
               ],

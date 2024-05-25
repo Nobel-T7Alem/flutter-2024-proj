@@ -251,15 +251,15 @@ class _PostItemState extends State<PostItem> {
   }
 
   Future<void> _selectDate() async {
-    DateTime? _picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
         context: context,
         firstDate: DateTime(2000),
         lastDate: DateTime(2100),
         initialDate: DateTime.now());
-    if (_picked != null) {
+    if (picked != null) {
       setState(() {
-        widget._dateController.text = _picked.toString().split(" ")[0];
-        calendar.add(_picked.toString().split(" ")[0]);
+        widget._dateController.text = picked.toString().split(" ")[0];
+        calendar.add(picked.toString().split(" ")[0]);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:Sebawi/presentation/screens/admin_page.dart';
+import 'package:go_router/go_router.dart';
 
 class AdminLoginPage extends StatefulWidget {
+  const AdminLoginPage({super.key});
+
   @override
   _AdminLoginPageState createState() => _AdminLoginPageState();
 }
@@ -44,7 +47,6 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
               const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: _login,
-                child: const Text('Login'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.lightGreen.withOpacity(0.5),
                   foregroundColor: Colors.white,
@@ -56,6 +58,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                   ),
                   shadowColor: Colors.greenAccent,
                 ),
+                child: const Text('Login'),
               ),
             ],
           ),
@@ -69,7 +72,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
         _passwordController.text == 'password') {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => AdminPage()),
+        MaterialPageRoute(builder: (context) => const AdminPage()),
       );
     } else {
       showDialog(
@@ -81,7 +84,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
             TextButton(
               child: const Text('Close'),
               onPressed: () {
-                Navigator.of(ctx).pop();
+                context.pop();
               },
             ),
           ],
