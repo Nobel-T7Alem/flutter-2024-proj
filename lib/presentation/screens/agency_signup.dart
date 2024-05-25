@@ -90,7 +90,7 @@ class _AgencySignupState extends State<AgencySignup> {
                     buttonColor: const Color.fromARGB(255, 83, 171, 71),
                     buttonTextColor: Colors.white,
                     buttonAction: () {
-                      Navigator.pushNamed(context, '/agency_page');
+                      context.go('/agency_home');
                     }),
                 Padding(
                   padding: const EdgeInsets.all(17),
