@@ -1,3 +1,4 @@
+import 'package:Sebawi/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,7 +14,7 @@ class AgencyHomePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 2,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
@@ -30,16 +31,38 @@ class AgencyHomePage extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
+                Tab(
+                  child: Text(
+                    "Add Post",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
               ],
               labelColor: Colors.green.shade800,
               unselectedLabelColor: Colors.grey.shade800,
               indicatorColor: Colors.green.shade800,
             ),
-            title: Text("Agency Posts",
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.green.shade800)),
+            title: Padding(
+              padding: const EdgeInsets.only(top: 16.0, left: 8.0),
+              child: Text("Sebawi",
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.green.shade800)),
+            ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0, right: 16.0),
+                child: IconButton(
+                  onPressed: () {
+                    context.go('/agency_update');
+                  },
+                  icon: Icon(Icons.settings),
+                  color: Colors.green.shade800,
+                  iconSize: 27,
+                ),
+              )
+            ],
           ),
           body: TabBarView(
             children: [
@@ -79,6 +102,56 @@ class AgencyHomePage extends StatelessWidget {
                   );
                 },
               ),
+              ListView.builder(
+                itemCount: 1,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Form(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextFormField(
+                            decoration: InputDecoration(labelText: 'Name'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter a name';
+                              }
+                              return null;
+                            },
+                          ),
+                          TextFormField(
+                            decoration:
+                                InputDecoration(labelText: 'Description'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter a description';
+                              }
+                              return null;
+                            },
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(labelText: 'Contact'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter youe contact';
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20),
+                          CustomButton(
+                              buttonText: 'post',
+                              buttonColor: Color.fromARGB(255, 255, 255, 255),
+                              buttonTextColor:
+                                  const Color.fromARGB(255, 33, 94, 35),
+                              buttonAction: () {})
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              )
             ],
           ),
         ),
