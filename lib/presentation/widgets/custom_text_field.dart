@@ -15,28 +15,28 @@ class CustomTextFormField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 35.0),
       child: TextFormField(
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(bottom: 4.0),
-          focusedBorder: UnderlineInputBorder(
+          contentPadding: const EdgeInsets.only(bottom: 4.0),
+          focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: Color.fromARGB(255, 31, 78, 33),
               style: BorderStyle.solid,
               width: 2,
             ),
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: Color.fromRGBO(213, 213, 213, 1),
             ),
           ),
           labelText: labelText,
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             color: Color.fromARGB(255, 165, 165, 165),
             fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
         ),
         obscureText: obscureText,
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
       ),
     );
   }

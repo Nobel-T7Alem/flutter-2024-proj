@@ -5,7 +5,7 @@ class RemoteService
 
   Future<List<Post>?> getPosts() async {
     var client = http.Client();
-    var uri = Uri.parse('http://localhost:3000/posts');
+    var uri = Uri.parse('http://192.168.1.3:3000/posts');
     final response = await client.get(uri);
     if (response.statusCode == 200) {
       var jsonString = response.body;
@@ -13,7 +13,6 @@ class RemoteService
     } else {
       return (null
       );
-
     }
   }
 }

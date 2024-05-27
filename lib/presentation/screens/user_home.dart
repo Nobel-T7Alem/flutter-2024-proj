@@ -1,11 +1,12 @@
 import 'package:Sebawi/data/services/api_path.dart';
 import 'package:flutter/material.dart';
-
 import '../../data/models/posts.dart';
-
 class UserHomePage extends StatelessWidget {
   const UserHomePage({super.key});
 
+  void initState() {
+    fetchPosts();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
