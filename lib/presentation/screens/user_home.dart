@@ -32,7 +32,7 @@ class UserHomePage extends StatelessWidget {
                   onPressed: () {
                     context.go('/user_update');
                   },
-                  icon: Icon(Icons.settings),
+                  icon: const Icon(Icons.settings),
                   color: Colors.green.shade800,
                   iconSize: 27,
                 ),
