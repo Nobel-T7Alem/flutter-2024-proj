@@ -70,10 +70,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
   void _login() {
     if (_usernameController.text == 'admin' &&
         _passwordController.text == 'password') {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const AdminPage()),
-      );
+     context.go('/admin_page');
     } else {
       showDialog(
         context: context,

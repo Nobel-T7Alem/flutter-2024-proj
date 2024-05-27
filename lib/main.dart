@@ -2,14 +2,17 @@ import 'package:Sebawi/presentation/screens/admin_login.dart';
 import 'package:Sebawi/presentation/screens/admin_page.dart';
 import 'package:Sebawi/presentation/screens/agency_home.dart';
 import 'package:Sebawi/presentation/screens/agency_signup.dart';
+import 'package:Sebawi/presentation/screens/agency_update.dart';
 import 'package:Sebawi/presentation/screens/login_page.dart';
 import 'package:Sebawi/presentation/screens/login_user.dart';
 import 'package:Sebawi/presentation/screens/signup_page.dart';
+import 'package:Sebawi/presentation/screens/user_update.dart';
 import 'package:Sebawi/presentation/screens/volunteer-signup.dart';
 import 'package:flutter/material.dart';
 import 'package:Sebawi/presentation/screens/home_page.dart';
 import 'package:Sebawi/presentation/screens/user_home.dart';
 import 'package:go_router/go_router.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +22,7 @@ final GoRouter _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      name:'home',
+      name: 'home',
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
@@ -55,7 +58,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/volunteer_signup',
       name: "volunteer_signup",
-      builder: (context, state) =>  VolunteerSignup(),
+      builder: (context, state) => VolunteerSignup(),
     ),
     GoRoute(
       path: '/agency_signup',
@@ -63,9 +66,24 @@ final GoRouter _router = GoRouter(
       builder: (context, state) => const AgencySignup(),
     ),
     GoRoute(
-      path: '/agency_home',
-      name: "agency_home",
-      builder: (context, state) => const AgencyHomePage()),
+        path: '/agency_home',
+        name: "agency_home",
+        builder: (context, state) => const AgencyHomePage()),
+    GoRoute(
+      path: '/user_update',
+      name: "user_update",
+      builder: (context, state) => const UserUpdate(),
+    ),
+    GoRoute(
+      path: '/agency_update',
+      name: "agency_update",
+      builder: (context, state) => const AgencyUpdate(),
+    ),
+    GoRoute(
+      path: '/admin_page',
+      name: "admin_page",
+      builder: (context, state) => const AdminPage(),
+    ),
   ],
   errorBuilder: (context, state) {
     return Scaffold(
@@ -74,12 +92,20 @@ final GoRouter _router = GoRouter(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center( child: Text('Error: ${state.error}', style: const TextStyle(fontSize: 20), textAlign: TextAlign.center,)),
+            Center(
+                child: Text(
+              'Error: ${state.error}',
+              style: const TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            )),
             ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 context.go('/');
               },
-              child: const Text('Return to Home Page', style: TextStyle(color: Colors.black),),
+              child: const Text(
+                'Return to Home Page',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ],
         ),
@@ -102,12 +128,13 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.green,
         ).copyWith(
           secondary: Colors.green[800],
-          surface: Colors.lightGreen.withOpacity(0.5), 
+          surface: Colors.lightGreen.withOpacity(0.5),
         ),
+        scaffoldBackgroundColor: Colors.white,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.lightGreen.withOpacity(0.5), 
-            foregroundColor: Colors.white, 
+            backgroundColor: Colors.lightGreen.withOpacity(0.5),
+            foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
@@ -117,13 +144,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.green[800], 
-          foregroundColor: Colors.white, 
+          backgroundColor: Colors.green[800],
+          foregroundColor: Colors.white,
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            foregroundColor: Colors
-                .green[800], 
+            foregroundColor: Colors.green[800],
           ),
         ),
       ),

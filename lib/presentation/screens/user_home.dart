@@ -1,6 +1,8 @@
 import 'package:Sebawi/data/services/api_path.dart';
 import 'package:flutter/material.dart';
 import '../../data/models/posts.dart';
+import 'package:go_router/go_router.dart';
+
 class UserHomePage extends StatelessWidget {
   const UserHomePage({super.key});
 
@@ -15,11 +17,27 @@ class UserHomePage extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Agency Posts',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.green.shade800)),
+            title: Padding(
+              padding: const EdgeInsets.only(top: 16.0, left: 8.0),
+              child: Text('Sebawi',
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.green.shade800)),
+            ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0, right: 16.0),
+                child: IconButton(
+                  onPressed: () {
+                    context.go('/user_update');
+                  },
+                  icon: Icon(Icons.settings),
+                  color: Colors.green.shade800,
+                  iconSize: 27,
+                ),
+              )
+            ],
             bottom: TabBar(
               tabs: const [
                 Tab(
