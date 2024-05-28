@@ -11,6 +11,8 @@ class LoginUser extends StatefulWidget {
 }
 
 class _LoginUserState extends State<LoginUser> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,13 +59,14 @@ class _LoginUserState extends State<LoginUser> {
                   ),
                 ),
                 const SizedBox(height: 10.0),
-                const CustomTextFormField(
-                  labelText: 'Username',
+                 CustomTextFormField(
+                  labelText: 'Username', controller: _usernameController,
+                  
                 ),
                 const SizedBox(height: 10.0),
-                const CustomTextFormField(
+                 CustomTextFormField(
                   labelText: 'Password',
-                  obscureText: true,
+                  obscureText: true, controller: _passwordController,
                 ),
                 const SizedBox(height: 40.0),
                 CustomButton(

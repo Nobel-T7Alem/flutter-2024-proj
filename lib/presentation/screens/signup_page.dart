@@ -18,7 +18,7 @@ class _SignupScreenState extends State<SignupScreen> {
         appBar: AppBar(
             leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            context.go('/');
           },
           icon: const Icon(Icons.arrow_back),
         )),

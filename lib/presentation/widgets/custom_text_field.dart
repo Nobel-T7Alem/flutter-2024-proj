@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
-
-  const CustomTextFormField({
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
+  const CustomTextFormField({super.key,
     required this.labelText,
     this.obscureText = false,
+    required this.controller,
+    this.validator,
   }) ;
 
   @override
@@ -37,6 +40,8 @@ class CustomTextFormField extends StatelessWidget {
         ),
         obscureText: obscureText,
         style: const TextStyle(color: Colors.black),
+        controller: controller,
+        validator: validator,
       ),
     );
   }
